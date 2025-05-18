@@ -22,10 +22,6 @@ Install with npm
 npm install --save @gabroberge/eslint-plugin-angular-immutability
 ```
 
-## Premade configs
-
-- [Premade configs](https://github.com/gabroberge/eslint-plugin-angular-immutability/blob/master/src/configs)
-
 ## Rules
 
 ### Suggestions
