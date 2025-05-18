@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.5
+
+### Patch Changes
+
+- 274edd9: Add prefer protected outputs rule
+
 ## 0.0.4
 
 ### Patch Changes
