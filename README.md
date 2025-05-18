@@ -2,6 +2,26 @@
 
 Please see https://github.com/gabroberge/eslint-plugin-angular-immutability for full usage instructions and guidance.
 
+## Installation
+
+Install with pnpm
+
+```bash
+pnpm add @gabroberge/eslint-plugin-angular-immutability
+```
+
+Install with yarn
+
+```bash
+yarn add @gabroberge/eslint-plugin-angular-immutability
+```
+
+Install with npm
+
+```bash
+npm install --save @gabroberge/eslint-plugin-angular-immutability
+```
+
 ## Premade configs
 
 - [Premade configs](https://github.com/gabroberge/eslint-plugin-angular-immutability/blob/master/src/configs)
