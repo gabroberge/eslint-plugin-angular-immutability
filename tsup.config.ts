@@ -5,7 +5,7 @@ export default defineConfig({
 	format: ["cjs", "esm"],
 	dts: true,
 	clean: true,
-	external: ["typescript"],
+	external: ["@typescript-eslint/utils", "eslint", "typescript"],
 	splitting: false,
 	treeshake: true,
 	minify: true,

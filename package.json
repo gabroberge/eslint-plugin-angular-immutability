@@ -28,6 +28,8 @@
 	"bugs": "https://github.com/gabroberge/eslint-plugin-angular-immutability/issues",
 	"devDependencies": {
 		"@changesets/cli": "^2.29.4",
+		"@typescript-eslint/utils": "^8.32.1",
+		"eslint": "^9.27.0",
 		"tsup": "^8.5.0",
 		"typescript": "^5.8.3"
 	}
