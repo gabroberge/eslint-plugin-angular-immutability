@@ -1,8 +1,8 @@
-# `@gabroberge/eslint-plugin-angular-signals/prefer-immutable-resource`
+# `@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs`
 
 Enforce protected accessibility for `@Output` properties and `OutputEmitterRef` types.
 
--   Type: suggestion
+- Type: suggestion
 
 <br>
 
@@ -25,9 +25,9 @@ The rule does not accept any configuration options.
 
 ```json
 {
-	"rules": {
-		"@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
-	}
+  "rules": {
+    "@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
+  }
 }
 ```
 
@@ -56,9 +56,9 @@ readonly outputEvent = output();
 
 ```json
 {
-	"rules": {
-		"@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
-	}
+  "rules": {
+    "@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
+  }
 }
 ```
 
