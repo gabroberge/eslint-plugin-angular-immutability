@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.9
+
+### Patch Changes
+
+- 0ba75c3: refactor: remove recommended config file and integrate its rules directly into the plugin configuration
+
 ## 0.0.8
 
 ### Patch Changes
