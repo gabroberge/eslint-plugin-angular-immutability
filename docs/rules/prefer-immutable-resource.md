@@ -15,8 +15,6 @@ The rule does not accept any configuration options.
 
 ## Usage Examples
 
-> The following examples are generated automatically from the actual unit tests within the plugin, so you can be assured that their behavior is accurate based on the current commit.
-
 <br>
 
 <details>
@@ -34,12 +32,38 @@ The rule does not accept any configuration options.
     ]
   }
 }
+```
 
 #### ❌ Invalid Code
 ```typescript
-// Incorrect
 public resource = resource({ loader: () => Promise.resolve(1) });
 public rxResource = rxResource({ loader: () => of(1) });
+```
+
+</details>
+
+<br>
+
+---
+
+<br>
+
+<details>
+<summary>✅  - Toggle examples of <strong>correct</strong> code for this rule</summary>
+
+<br>
+
+
+#### Default Config
+
+```json
+{
+  "rules": {
+    "@gabroberge/eslint-plugin-angular-signals/prefer-immutable-resource": [
+      "error"
+    ]
+  }
+}
 ```
 
 #### ✅ Valid Code
@@ -48,3 +72,7 @@ public rxResource = rxResource({ loader: () => of(1) });
 public readonly resource = resource({ loader: () => Promise.resolve(1) });
 public readonly rxResource = rxResource({ loader: () => of(1) });
 ```
+
+</details>
+
+<br>
