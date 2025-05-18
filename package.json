@@ -1,0 +1,34 @@
+{
+	"name": "@gabroberge/eslint-plugin-angular-immutability",
+	"version": "0.0.0",
+	"description": "ESLint plugin for Angular Immutability",
+	"private": false,
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"packageManager": "pnpm@9.1.4",
+	"scripts": {
+		"build": "tsup",
+		"release": "pnpm run build && changeset publish"
+	},
+	"keywords": [
+		"angular",
+		"eslint",
+		"readonly",
+		"immutability",
+		"typescript"
+	],
+	"author": "Gabriel Roberge",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gabroberge/eslint-plugin-angular-immutability.git"
+	},
+	"homepage": "https://github.com/gabroberge/eslint-plugin-angular-immutability#readme",
+	"bugs": "https://github.com/gabroberge/eslint-plugin-angular-immutability/issues",
+	"devDependencies": {
+		"@changesets/cli": "^2.29.4",
+		"tsup": "^8.5.0",
+		"typescript": "^5.8.3"
+	}
+}
