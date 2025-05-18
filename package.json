@@ -1,6 +1,6 @@
 {
 	"name": "@gabroberge/eslint-plugin-angular-immutability",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "ESLint plugin for Angular Immutability",
 	"private": false,
 	"main": "./dist/index.js",

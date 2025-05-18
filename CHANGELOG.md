@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.6
+
+### Patch Changes
+
+- 7a56340: docs: expand README with usage instructions, premade configs, and rules overview
+
 ## 0.0.5
 
 ### Patch Changes
