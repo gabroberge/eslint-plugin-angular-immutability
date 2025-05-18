@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.3
+
+### Patch Changes
+
+- 27db386: Implement plugin structure
+
 ## 0.0.2
 
 ### Patch Changes
