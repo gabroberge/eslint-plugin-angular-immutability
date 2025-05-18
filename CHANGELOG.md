@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.8
+
+### Patch Changes
+
+- 5906a11: Fix missing prefer-protected-outputs rule and update recommended configuration
+
 ## 0.0.7
 
 ### Patch Changes
