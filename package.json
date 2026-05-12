@@ -27,10 +27,10 @@
 	"homepage": "https://github.com/gabroberge/eslint-plugin-angular-immutability#readme",
 	"bugs": "https://github.com/gabroberge/eslint-plugin-angular-immutability/issues",
 	"devDependencies": {
-		"@changesets/cli": "^2.29.4",
-		"@typescript-eslint/utils": "^8.32.1",
-		"eslint": "^9.27.0",
-		"tsup": "^8.5.0",
-		"typescript": "^5.8.3"
+		"@changesets/cli": "^2.31.0",
+		"@typescript-eslint/utils": "^8.59.3",
+		"eslint": "^10.3.0",
+		"tsup": "^8.5.1",
+		"typescript": "^6.0.3"
 	}
 }
