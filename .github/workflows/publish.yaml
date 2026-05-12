@@ -17,15 +17,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
 
             - name: Enable Corepack
               run: corepack enable
 
-            - name: Set up Node.js 22.x
-              uses: actions/setup-node@v6
+            # Node 24 bundles npm 11+ for OIDC; global `npm i -g npm@11` on Node 22 can break in CI.
+            - name: Set up Node.js 24.x
+              uses: actions/setup-node@v4
               with:
-                  node-version: 22.x
+                  node-version: 24.x
                   cache: "pnpm"
 
             - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
