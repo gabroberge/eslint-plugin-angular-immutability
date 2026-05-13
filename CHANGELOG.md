@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.11
+
+### Patch Changes
+
+- f223125: Update tooling dev dependencies
+
 ## 0.0.10
 
 ### Patch Changes
