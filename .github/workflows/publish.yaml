@@ -19,21 +19,14 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v6
 
-            - name: Enable Corepack
-              run: corepack enable
-
-            # Node 24 bundles npm 11+ for OIDC; global `npm i -g npm@11` on Node 22 can break in CI.
+            # Node 24 bundles npm 11+ for OIDC; `changeset publish` uses npm under the hood.
             - name: Set up Node.js 24.x
               uses: actions/setup-node@v6
               with:
                   node-version: 24.x
-                  cache: "pnpm"
 
-            - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
-              id: pnpm-config
-              shell: bash
-              run: |
-                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+            - name: Set up Bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Cache rotation keys
               id: cache-rotation
@@ -41,18 +34,17 @@ jobs:
               run: |
                   echo "YEAR_MONTH=$(/bin/date -u "+%Y%m")" >> $GITHUB_OUTPUT
 
-            - name: Setup pnpm cache
+            - name: Setup bun cache
               uses: actions/cache@v5
               with:
                   path: |
-                      ${{ steps.pnpm-config.outputs.STORE_PATH }}
-                      ~/.cache/Cypress
-                  key: ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+                      ~/.bun/install/cache
+                  key: ${{ runner.os }}-bun-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-${{ hashFiles('**/bun.lock') }}
                   restore-keys: |
-                      ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
+                      ${{ runner.os }}-bun-store-cache-${{ steps.cache-rotation.outputs.YEAR_MONTH }}-
 
             - name: Install dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
+              run: bun install --frozen-lockfile
               env:
                   HUSKY: "0"
 
@@ -63,6 +55,6 @@ jobs:
               id: changesets
               uses: changesets/action@v1
               with:
-                  publish: pnpm run release
+                  publish: bun run release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -6,10 +6,9 @@
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"packageManager": "pnpm@9.1.4",
 	"scripts": {
 		"build": "tsup",
-		"release": "pnpm run build && changeset publish"
+		"release": "bun run build && changeset publish"
 	},
 	"keywords": [
 		"angular",
@@ -28,8 +27,8 @@
 	"bugs": "https://github.com/gabroberge/eslint-plugin-angular-immutability/issues",
 	"devDependencies": {
 		"@changesets/cli": "^2.31.0",
-		"@typescript-eslint/utils": "^8.59.3",
-		"eslint": "^10.3.0",
+		"@typescript-eslint/utils": "^8.61.1",
+		"eslint": "^10.5.0",
 		"tsup": "^8.5.1",
 		"typescript": "^6.0.3"
 	}
