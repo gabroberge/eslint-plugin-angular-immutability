@@ -25,9 +25,9 @@ The rule does not accept any configuration options.
 
 ```json
 {
-  "rules": {
-    "@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
-  }
+	"rules": {
+		"@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
+	}
 }
 ```
 
@@ -56,9 +56,9 @@ readonly outputEvent = output();
 
 ```json
 {
-  "rules": {
-    "@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
-  }
+	"rules": {
+		"@gabroberge/eslint-plugin-angular-signals/prefer-protected-outputs": ["error"]
+	}
 }
 ```
 

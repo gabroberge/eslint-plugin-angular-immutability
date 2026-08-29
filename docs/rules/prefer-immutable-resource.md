@@ -26,9 +26,9 @@ The rule does not accept any configuration options.
 
 ```json
 {
-  "rules": {
-    "@gabroberge/eslint-plugin-angular-signals/prefer-immutable-resource": ["error"]
-  }
+	"rules": {
+		"@gabroberge/eslint-plugin-angular-signals/prefer-immutable-resource": ["error"]
+	}
 }
 ```
 
@@ -56,9 +56,9 @@ public rxResource = rxResource({ loader: () => of(1) });
 
 ```json
 {
-  "rules": {
-    "@gabroberge/eslint-plugin-angular-signals/prefer-immutable-resource": ["error"]
-  }
+	"rules": {
+		"@gabroberge/eslint-plugin-angular-signals/prefer-immutable-resource": ["error"]
+	}
 }
 ```
 

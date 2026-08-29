@@ -1,11 +1,17 @@
 {
-	"$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
-	"changelog": "@changesets/cli/changelog",
+	"$schema": "https://unpkg.com/@changesets/config@4.0.0/schema.json",
+	"baseBranch": "master",
+	"access": "public",
+	"format": "auto",
+	"changelog": [
+		"@changesets/changelog-github",
+		{
+			"repo": "gabroberge/eslint-plugin-angular-immutability"
+		}
+	],
 	"commit": false,
+	"ignore": [],
 	"fixed": [],
 	"linked": [],
-	"access": "public",
-	"baseBranch": "master",
-	"updateInternalDependencies": "patch",
-	"ignore": []
+	"updateInternalDependencies": "patch"
 }
