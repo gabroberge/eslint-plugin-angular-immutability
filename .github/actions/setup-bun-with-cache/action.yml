@@ -1,0 +1,22 @@
+name: Setup Bun with dependency cache
+description: Installs Bun (version from package.json), restores the Bun install cache, then runs bun install at the repository root.
+
+runs:
+    using: composite
+    steps:
+        - uses: oven-sh/setup-bun@v2.2.0
+          with:
+              bun-version-file: package.json
+
+        - uses: actions/cache@v6.1.0
+          with:
+              path: ~/.bun/install/cache
+              key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+              restore-keys: |
+                  ${{ runner.os }}-bun-
+
+        - name: Install dependencies
+          run: |
+              cd "${{ github.workspace }}"
+              HUSKY=0 bun install --frozen-lockfile
+          shell: bash

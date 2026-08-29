@@ -1,16 +1,21 @@
 version: 2
 updates:
-    - package-ecosystem: "npm"
-      directory: "/"
-      target-branch: dev
-      schedule:
-          interval: "weekly"
-      assignees:
-          - gabroberge
     - package-ecosystem: "github-actions"
       directory: "/"
-      target-branch: dev
+      target-branch: "dev"
       schedule:
           interval: "weekly"
+      commit-message:
+          prefix: "deps(actions)"
+      assignees:
+          - gabroberge
+
+    - package-ecosystem: "bun"
+      directory: "/"
+      target-branch: "dev"
+      schedule:
+          interval: "weekly"
+      commit-message:
+          prefix: "deps(bun)"
       assignees:
           - gabroberge

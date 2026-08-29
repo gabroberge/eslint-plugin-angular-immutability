@@ -1,0 +1,14 @@
+{
+	"name": "web",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"lint": "eslint src"
+	},
+	"dependencies": {
+		"@angular/core": "^22.1.4"
+	},
+	"devDependencies": {
+		"@gabroberge/eslint-plugin-angular-immutability": "workspace:*"
+	}
+}

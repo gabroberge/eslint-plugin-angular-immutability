@@ -1,0 +1,96 @@
+name: Publish
+
+on:
+    push:
+        branches:
+            - master
+
+permissions: {}
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+    select-mode:
+        runs-on: ubuntu-latest
+        outputs:
+            mode: ${{ steps.select-mode.outputs.mode }}
+            publish-plan-artifact-id: ${{ steps.select-mode.outputs.publish-plan-artifact-id }}
+        permissions:
+            contents: read
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  persist-credentials: false
+
+            - uses: ./.github/actions/setup-bun-with-cache
+
+            - id: select-mode
+              uses: changesets/action/select-mode@v2
+
+    version:
+        if: needs.select-mode.outputs.mode == 'version'
+        needs: select-mode
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  # changelog-github needs commit history to link PRs.
+                  fetch-depth: 0
+                  persist-credentials: false
+
+            - uses: ./.github/actions/setup-bun-with-cache
+
+            - uses: changesets/action/version@v2
+              with:
+                  commit-message: "chore: version packages"
+                  pr-title: "chore: version packages"
+
+    pack:
+        if: needs.select-mode.outputs.mode == 'publish'
+        needs: select-mode
+        runs-on: ubuntu-latest
+        outputs:
+            pack-dir-artifact-id: ${{ steps.pack.outputs.pack-dir-artifact-id }}
+        permissions:
+            contents: read
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  persist-credentials: false
+
+            - uses: ./.github/actions/setup-bun-with-cache
+
+            - name: Build
+              run: bunx turbo run build
+
+            - id: pack
+              uses: changesets/action/pack@v2
+              with:
+                  publish-plan-artifact-id: ${{ needs.select-mode.outputs.publish-plan-artifact-id }}
+
+    publish:
+        needs: pack
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            id-token: write
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  persist-credentials: false
+
+            # npm CLI does the OIDC exchange; bun publish does not.
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 26
+                  package-manager-cache: false
+
+            - uses: ./.github/actions/setup-bun-with-cache
+
+            - uses: changesets/action/publish@v2
+              with:
+                  pack-dir-artifact-id: ${{ needs.pack.outputs.pack-dir-artifact-id }}
