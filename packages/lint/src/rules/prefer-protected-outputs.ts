@@ -10,16 +10,9 @@ export type Options = [];
 
 export const RULE_NAME = "prefer-protected-outputs";
 
-const preferProtectedOutputs: RuleModule<MessageIds, Options, RuleDocs> = createESLintRule<
-	Options,
-	MessageIds
->({
+const preferProtectedOutputs: RuleModule<MessageIds, Options, RuleDocs> = createESLintRule<Options, MessageIds>({
 	create(context) {
-		function fix(
-			accessibility: string,
-			fixer: RuleFixer,
-			node: TSESTree.PropertyDefinition
-		): RuleFix | null {
+		function fix(accessibility: string, fixer: RuleFixer, node: TSESTree.PropertyDefinition): RuleFix | null {
 			if (node.accessibility === "public") {
 				const publicToken = context.sourceCode.getFirstToken(node, {
 					filter: (token) => token.value === "public"

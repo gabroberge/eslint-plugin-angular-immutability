@@ -9,10 +9,7 @@ export type Options = [];
 
 export const RULE_NAME = "prefer-immutable-resource";
 
-const preferImmutableResource: RuleModule<MessageIds, Options, RuleDocs> = createESLintRule<
-	Options,
-	MessageIds
->({
+const preferImmutableResource: RuleModule<MessageIds, Options, RuleDocs> = createESLintRule<Options, MessageIds>({
 	create(context) {
 		function report(key: TSESTree.Node, type: string): void {
 			context.report({
