@@ -1,5 +1,6 @@
-import { AST_NODE_TYPES } from "@typescript-eslint/utils";
-import type { TSESLint, TSESTree } from "@typescript-eslint/utils";
+import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import type { TSESTree } from "@typescript-eslint/types";
+import type { RuleFix, RuleFixer, RuleModule } from "@typescript-eslint/utils/ts-eslint";
 
 import { createESLintRule } from "../utils/create-eslint-rule";
 import type { RuleDocs } from "../utils/create-eslint-rule";
@@ -9,14 +10,16 @@ export type Options = [];
 
 export const RULE_NAME = "prefer-protected-outputs";
 
-const preferProtectedOutputs: TSESLint.RuleModule<MessageIds, Options, RuleDocs> =
-	createESLintRule<Options, MessageIds>({
+const preferProtectedOutputs: RuleModule<MessageIds, Options, RuleDocs> = createESLintRule<
+	Options,
+	MessageIds
+>({
 	create(context) {
 		function fix(
 			accessibility: string,
-			fixer: TSESLint.RuleFixer,
+			fixer: RuleFixer,
 			node: TSESTree.PropertyDefinition
-		): TSESLint.RuleFix | null {
+		): RuleFix | null {
 			if (node.accessibility === "public") {
 				const publicToken = context.sourceCode.getFirstToken(node, {
 					filter: (token) => token.value === "public"
@@ -60,7 +63,7 @@ const preferProtectedOutputs: TSESLint.RuleModule<MessageIds, Options, RuleDocs>
 				node: key,
 				suggest: [
 					{
-						fix: (fixer): TSESLint.RuleFix | null => {
+						fix: (fixer): RuleFix | null => {
 							const accessibility = property.readonly ? "protected readonly" : "protected";
 							return fix(accessibility, fixer, property);
 						},

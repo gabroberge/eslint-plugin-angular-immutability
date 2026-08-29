@@ -39,6 +39,7 @@
       "name": "@gabroberge/eslint-plugin-angular-immutability",
       "version": "0.0.11",
       "dependencies": {
+        "@typescript-eslint/types": "^8.68.0",
         "@typescript-eslint/utils": "^8.68.0",
       },
       "devDependencies": {

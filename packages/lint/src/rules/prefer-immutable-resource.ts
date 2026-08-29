@@ -1,4 +1,5 @@
-import type { TSESLint, TSESTree } from "@typescript-eslint/utils";
+import type { TSESTree } from "@typescript-eslint/types";
+import type { RuleModule } from "@typescript-eslint/utils/ts-eslint";
 
 import { createESLintRule } from "../utils/create-eslint-rule";
 import type { RuleDocs } from "../utils/create-eslint-rule";
@@ -8,8 +9,10 @@ export type Options = [];
 
 export const RULE_NAME = "prefer-immutable-resource";
 
-const preferImmutableResource: TSESLint.RuleModule<MessageIds, Options, RuleDocs> =
-	createESLintRule<Options, MessageIds>({
+const preferImmutableResource: RuleModule<MessageIds, Options, RuleDocs> = createESLintRule<
+	Options,
+	MessageIds
+>({
 	create(context) {
 		function report(key: TSESTree.Node, type: string): void {
 			context.report({
@@ -18,7 +21,7 @@ const preferImmutableResource: TSESLint.RuleModule<MessageIds, Options, RuleDocs
 				node: key,
 				suggest: [
 					{
-						fix: (fixer): TSESLint.RuleFix => fixer.insertTextBefore(key, "readonly "),
+						fix: (fixer) => fixer.insertTextBefore(key, "readonly "),
 						messageId: "suggestAddReadonlyModifier"
 					}
 				]
