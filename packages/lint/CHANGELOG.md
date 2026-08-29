@@ -1,5 +1,11 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+## 0.0.12
+
+### Patch Changes
+
+- [`dbde538`](https://github.com/gabroberge/eslint-plugin-angular-immutability/commit/dbde5382c779cdc1f9fdf854fa478a9b03779575) Thanks [@gabroberge](https://github.com/gabroberge)! - Repackage the plugin as dual CJS/ESM via tsdown. Rule behavior is unchanged.
+
 ## 0.0.11
 
 ### Patch Changes
