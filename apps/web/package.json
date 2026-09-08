@@ -6,7 +6,7 @@
 		"lint": "eslint src"
 	},
 	"dependencies": {
-		"@angular/core": "^22.1.4"
+		"@angular/core": "^22.1.5"
 	},
 	"devDependencies": {
 		"@gabroberge/eslint-plugin-angular-immutability": "workspace:*"
