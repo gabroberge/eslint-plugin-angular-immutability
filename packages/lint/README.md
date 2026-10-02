@@ -1,5 +1,7 @@
 # @gabroberge/eslint-plugin-angular-immutability
 
+> **Deprecated.** This package is being deprecated and will be moved to [`@gabroberge/eslint-plugin-angular`](https://github.com/gabroberge/lint-turborepo). That repository is the new home.
+
 Please see https://github.com/gabroberge/eslint-plugin-angular-immutability for full usage instructions and guidance.
 
 ## Installation

@@ -2,7 +2,8 @@
 	"name": "@gabroberge/eslint-plugin-angular-immutability",
 	"version": "0.0.12",
 	"private": false,
-	"description": "ESLint plugin for Angular Immutability",
+	"description": "Deprecated. Moving to @gabroberge/eslint-plugin-angular. ESLint plugin for Angular immutability.",
+	"deprecated": "This package is being deprecated and will be moved to @gabroberge/eslint-plugin-angular. The new home is https://github.com/gabroberge/lint-turborepo.",
 	"keywords": [
 		"angular",
 		"eslint",
